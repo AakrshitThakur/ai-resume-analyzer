@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Button } from "@headlessui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useTheme } from "next-themes";
-import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import ToggleBtn from "./ToggleBtn";

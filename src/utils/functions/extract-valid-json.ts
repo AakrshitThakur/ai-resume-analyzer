@@ -9,8 +9,12 @@ export default function extractValidJSON(responseText: string) {
 
     // Try to parse as JSON
     return JSON.parse(cleaned);
-  } catch (error: any) {
-    console.error("JSON parsing failed: ", error.message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("JSON parsing failed:", error.message);
+    } else {
+      console.error("JSON parsing failed with an unknown error:", error);
+    }
     throw new Error("Invalid JSON returned from LLM");
   }
 }

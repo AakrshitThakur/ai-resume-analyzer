@@ -81,8 +81,17 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (error: any) {
-    console.error("ERROR:", error);
-    return NextResponse.json({ message: error }, { status: 500 });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("ERROR:", error.message);
+      return NextResponse.json({ message: error.message }, { status: 500 });
+    }
+
+    // Fallback if it's not an Error instance
+    console.error("UNKNOWN ERROR:", error);
+    return NextResponse.json(
+      { message: "An unknown error occurred" },
+      { status: 500 }
+    );
   }
 }

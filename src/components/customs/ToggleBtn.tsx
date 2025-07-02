@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 
 export default function ToggleBtn() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // only render after client-side mount to avoid hydration mismatch

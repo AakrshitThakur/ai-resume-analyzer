@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import callToast from "@/utils/functions/callToast";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setToTrue, setToFalse } from "@/features/loadingSlice";
 import { setToTrue as st, setToFalse as sf } from "@/features/resultSlice";
 import {
@@ -34,9 +34,15 @@ export default function File() {
       dispatch(st(llm_result));
       dispatch(setToFalse());
       callToast(message, 200);
-    } catch (error: any) {
-      console.error(error);
-      callToast(error.message, 500);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error);
+        callToast(error.message, 500);
+      } else {
+        console.error("UNKNOWN ERROR:", error);
+        callToast("An unknown error occurred", 500);
+      }
+
       dispatch(sf());
       dispatch(setToFalse());
     }
@@ -47,17 +53,29 @@ export default function File() {
       const file = e.target.files?.[0];
       if (!file) return;
       if (!validatePdfExtension(file.type)) {
-        const error: any = new Error("Please provide a PDF file");
+        const error = new Error("Please provide a PDF file") as Error & {
+          statusCode: number;
+        };
         error.statusCode = 400;
         throw error;
       }
+
       const fd = new FormData();
       fd.append("pdf", file);
       dispatch(setToTrue());
       fetchAnalysisResult(fd);
-    } catch (error: any) {
-      console.error(error.message);
-      callToast(error.message, error.statusCode);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        const message = error.message;
+        const statusCode = (error as { statusCode?: number }).statusCode || 500;
+
+        console.error(message);
+        callToast(message, statusCode);
+      } else {
+        console.error("UNKNOWN ERROR:", error);
+        callToast("An unknown error occurred", 500);
+      }
+
       dispatch(sf());
       dispatch(setToFalse());
     }
