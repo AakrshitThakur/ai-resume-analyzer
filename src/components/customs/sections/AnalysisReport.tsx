@@ -10,11 +10,19 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, XCircle, Star } from "lucide-react";
 import { useSelector } from "react-redux";
 import { LlmResult } from "@/utils/interfaces/result";
+import { RootState } from "@/store/index";
 
 export default function AnalysisReport() {
-  const llmResult: LlmResult = useSelector(
-    (state: any) => state.result.analysisResult
+  const llmResult: LlmResult | null = useSelector(
+    (state: RootState) => state.result.analysisResult
   );
+  if (!llmResult) {
+    return (
+      <div className="text-center py-10">
+        <p className="text-gray-500">No analysis data available.</p>
+      </div>
+    );
+  }
   const sections = Object.entries(llmResult);
   if (sections.length === 0) {
     return (

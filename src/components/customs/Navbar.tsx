@@ -23,7 +23,10 @@ const Navbar: React.FC = () => {
         <div className="flex items-center space-x-4">
           <Link className="flex" href="/">
             <Avatar className="h-10 w-10 md:h-14 md:w-14 lg:h-16 lg:w-16 mr-1">
-              <AvatarImage src="/AakrshitThakurPassportPic.jpeg" alt="Aakrshit Thakur Picture" />
+              <AvatarImage
+                src="/AakrshitThakurPassportPic.jpeg"
+                alt="Aakrshit Thakur Picture"
+              />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <Button className="hidden sm:inline-block cursor-pointer mr-1 font-bold text-2xl text-center leading-none">
@@ -34,10 +37,10 @@ const Navbar: React.FC = () => {
 
         {/* Navigation Buttons */}
         <div className="flex items-center space-x-4">
-          <Link href="/">
+          <Link href="https://github.com/AakrshitThakur">
             <FaGithub className="h-7 w-auto mb-1" />
           </Link>
-          <Link href="/about">
+          <Link href="https://www.linkedin.com/in/aakrshit-thakur-14433627b/">
             <FaLinkedin className="h-7 w-auto mb-1" />
           </Link>
           <div>

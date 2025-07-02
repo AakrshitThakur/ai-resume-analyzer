@@ -4,12 +4,11 @@ import { FaUserCircle } from "react-icons/fa";
 import File from "./File/File";
 import Progress from "@/components/customs/Progress";
 import { useSelector } from "react-redux";
+import { RootState } from "@/store/index";
 
-type Props = {};
-
-export default function UploadFile({}: Props) {
+export default function UploadFile() {
   const loading: boolean = useSelector(
-    (state: any) => state.loading.isAnalysisLoading
+    (state: RootState) => state.loading.isAnalysisLoading
   );
   return (
     <section id="upload-file" className="surface">

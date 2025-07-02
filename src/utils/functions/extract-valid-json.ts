@@ -1,4 +1,4 @@
-export default function extractValidJSON(responseText: any) {
+export default function extractValidJSON(responseText: string) {
   try {
     // Remove code fences if they exist
     const cleaned = responseText
