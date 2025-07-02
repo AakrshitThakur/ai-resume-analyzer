@@ -11,6 +11,7 @@ import { CheckCircle, XCircle, Star } from "lucide-react";
 import { useSelector } from "react-redux";
 import { LlmResult } from "@/utils/interfaces/result";
 import { RootState } from "@/store/index";
+import { SectionResult } from "@/utils/interfaces/result";
 
 export default function AnalysisReport() {
   const llmResult: LlmResult | null = useSelector(
@@ -23,7 +24,8 @@ export default function AnalysisReport() {
       </div>
     );
   }
-  const sections = Object.entries(llmResult);
+  const sections = Object.entries(llmResult) as [string, SectionResult][];
+
   if (sections.length === 0) {
     return (
       <div className="text-center py-10">
