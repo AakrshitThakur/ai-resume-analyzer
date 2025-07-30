@@ -1,14 +1,15 @@
 "use client";
 import React from "react";
-import callToast from "@/utils/functions/callToast";
+import callToast from "@/utils/functions/call-toast";
 import { useDispatch } from "react-redux";
-import { setToTrue, setToFalse } from "@/features/loadingSlice";
-import { setToTrue as st, setToFalse as sf } from "@/features/resultSlice";
+import { setToTrue, setToFalse } from "@/features/loading-slice";
+import { setToTrue as st, setToFalse as sf } from "@/features/result-slice";
 import {
   FaFileAlt, // file with text lines
 } from "react-icons/fa";
 import { LlmResult } from "@/utils/interfaces/result";
-import validatePdfExtension from "@/utils/functions/validatePdfExtension";
+import validatePdfExtension from "@/utils/functions/validate-pdf-extension";
+import { motion } from "motion/react";
 
 export default function File() {
   const dispatch = useDispatch();
@@ -82,7 +83,14 @@ export default function File() {
   }
 
   return (
-    <div className="cursor-pointer dashed-border p-4 sm:p-6 md:p-8 flex flex-col justify-center items-center">
+    <motion.div
+      initial={{ x: "100vw" }}
+      animate={{ x: "0" }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.8 }}
+      transition={{ type: "tween", duration: 0.6 }}
+      className="cursor-pointer dashed-border p-4 sm:p-6 md:p-8 flex flex-col justify-center items-center"
+    >
       <input
         className="hidden"
         type="file"
@@ -96,6 +104,6 @@ export default function File() {
           Click here to upload your resume
         </span>
       </label>
-    </div>
+    </motion.div>
   );
 }

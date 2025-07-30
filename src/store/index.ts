@@ -1,7 +1,7 @@
 // store/index.js
 import { configureStore } from "@reduxjs/toolkit";
-import loadingReducer from "../features/loadingSlice";
-import resultReducer from "../features/resultSlice";
+import loadingReducer from "../features/loading-slice";
+import resultReducer from "../features/result-slice";
 
 export const store = configureStore({
   reducer: {

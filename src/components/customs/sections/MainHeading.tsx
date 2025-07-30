@@ -1,5 +1,6 @@
 import React from "react";
 import { Separator } from "@/components/ui/separator";
+import { motion } from "motion/react";
 
 export default function MainHeading() {
   return (
@@ -11,9 +12,16 @@ export default function MainHeading() {
           in a Blink
         </h1>
         <Separator />
-        <span className="text-xs sm:text-sm md:text-lg text-center leading-none">
+        <motion.span
+          initial={{ x: "-100vw" }} // Start from far left
+          animate={{ x: 0 }} // Slide into original position
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.8 }}
+          transition={{ type: "tween", duration: 0.6 }}
+          className="text-xs sm:text-sm md:text-lg text-center inline-block leading-none"
+        >
           Submit your resume to review the results provided by AI.
-        </span>
+        </motion.span>
       </div>
     </section>
   );

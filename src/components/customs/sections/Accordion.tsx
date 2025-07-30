@@ -9,22 +9,16 @@ export default function AccordionFC() {
   return (
     <section>
       <div className="p-6 sm:p-8 lg:p-12">
-        <Accordion
-          type="single"
-          collapsible
-          className="w-full"
-          defaultValue="item-1"
-        >
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger>Product Information</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">Product Information</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>
-                Your task is to analyze the provided resume PDF and generate a
-                comprehensive evaluation report with structured scoring across
-                five critical sections.
+                Provide resume PDF and get a comprehensive evaluation report
+                with structured scoring across five critical sections.
               </p>
               <p>
-                I employed the Gemini 2.5 Pro model, which provided me—at no
+                I have Employed Gemini 2.5 Pro model, which provided me—at no
                 cost—with up to 5 requests per minute (RPM), 250,000 tokens per
                 minute (TPM), and 100 requests per day (RPD), thereby enabling
                 more efficient processing and superior results.
@@ -32,7 +26,7 @@ export default function AccordionFC() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Key Sections</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">Key Sections</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>
                 EXPERIENCE - Perform a holistic resume audit assessing role
@@ -68,14 +62,13 @@ export default function AccordionFC() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger>About Me</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">About Me</AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>
                 A Full-stack developer proficient in MERN stack, Next.js,
-                TypeScript, etc, with an internship experience delivering
-                polished UIs and scalable backend solutions. Demonstrated
-                ability to build and maintain full-lifecycle web applications,
-                backed by strong academic achievements and proven teamwork.
+                TypeScript, etc. Demonstrated ability to build and maintain
+                full-lifecycle web applications, backed by strong academic
+                achievements.
               </p>
             </AccordionContent>
           </AccordionItem>

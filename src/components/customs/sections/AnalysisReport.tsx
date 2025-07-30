@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
@@ -19,27 +20,44 @@ export default function AnalysisReport() {
   );
   if (!llmResult) {
     return (
-      <div className="text-center py-10">
+      <motion.div
+        initial={{ x: "-100vw" }} // Start from far left
+        animate={{ x: 0 }} // Slide into original position
+        whileHover={{ scale: 1.025 }}
+        whileTap={{ scale: 0.8 }}
+        transition={{ type: "tween", duration: 0.6 }}
+      >
         <p className="text-gray-500">No analysis data available.</p>
-      </div>
+      </motion.div>
     );
   }
   const sections = Object.entries(llmResult) as [string, SectionResult][];
 
   if (sections.length === 0) {
     return (
-      <div className="text-center py-10">
+      <motion.div
+        initial={{ x: "-100vw" }} // Start from far left
+        animate={{ x: 0 }} // Slide into original position
+        whileHover={{ scale: 1.025 }}
+        whileTap={{ scale: 0.8 }}
+        transition={{ type: "tween", duration: 0.6 }}
+      >
         <p className="text-gray-500">No analysis data available.</p>
-      </div>
+      </motion.div>
     );
   }
 
   return (
     <div className="flex space-x-4 overflow-x-auto py-4 snap-x snap-mandatory">
       {sections.map(([section, data]) => (
-        <div
+        <motion.div
           key={section}
           className="snap-start min-w-[300px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[600px] xl:min-w-[700px]"
+          initial={{ x: "-100vw" }} // Start from far left
+          animate={{ x: 0 }} // Slide into original position
+          whileHover={{ scale: 1.025 }}
+          whileTap={{ scale: 0.8 }}
+          transition={{ type: "tween", duration: 0.6 }}
         >
           <Card className="border font-color secondary-surface">
             <CardHeader className="flex flex-col sm:flex-row items-center justify-between">
@@ -57,7 +75,7 @@ export default function AnalysisReport() {
             <CardContent>
               <Accordion type="multiple" className="space-y-2">
                 <AccordionItem value="merits">
-                  <AccordionTrigger className="flex items-center">
+                  <AccordionTrigger className="flex items-center cursor-pointer">
                     <CheckCircle className="mr-2 h-5 w-5 text-green-500" />
                     <span>Merits</span>
                   </AccordionTrigger>
@@ -73,7 +91,7 @@ export default function AnalysisReport() {
                 </AccordionItem>
 
                 <AccordionItem value="demerits">
-                  <AccordionTrigger className="flex items-center">
+                  <AccordionTrigger className="flex items-center  cursor-pointer">
                     <XCircle className="mr-2 h-5 w-5 text-red-500" />
                     <span>Demerits</span>
                   </AccordionTrigger>
@@ -96,7 +114,7 @@ export default function AnalysisReport() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

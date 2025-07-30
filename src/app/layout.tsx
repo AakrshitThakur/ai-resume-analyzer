@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import StoreProvider from "./storeProvider";
+import StoreProvider from "./StoreProvider";
 import { ClientToaster } from "@/components/customs/ClientToaster";
 import "./globals.css";
 
