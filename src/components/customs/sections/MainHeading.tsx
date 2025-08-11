@@ -18,7 +18,7 @@ export default function MainHeading() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.8 }}
           transition={{ type: "tween", duration: 0.6 }}
-          className="text-xs sm:text-sm md:text-lg text-center inline-block leading-none"
+          className="text-xs sm:text-sm md:text-lg text-left inline-block leading-none"
         >
           Submit your resume to review the results provided by AI.
         </motion.span>
