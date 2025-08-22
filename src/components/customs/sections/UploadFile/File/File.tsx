@@ -14,27 +14,39 @@ import { motion } from "motion/react";
 export default function File() {
   const dispatch = useDispatch();
 
-  async function fetchAnalysisResult(form: FormData) {
+  async function fetchAnalysisResult(
+    form: FormData,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) {
     try {
       const res = await fetch("/api/analysis", {
         method: "POST",
         body: form,
       });
-      if (!res.ok) {
-        const status = res.status;
-        const { message } = await res.json();
-        console.error(message);
-        callToast(message, status);
+
+      const json = await res.json();
+      if (json.error) {
+        const { error, status }: { error: string; status: number } = json;
+        console.error(error);
+        callToast(error, status);
         dispatch(sf());
         dispatch(setToFalse());
+
+        // Reset input so the same file can be chosen again
+        e.target.value = "";
+      } else {
+        const {
+          llm_result,
+          message,
+        }: { llm_result: LlmResult; message: string } = json;
+
+        dispatch(st(llm_result));
+        dispatch(setToFalse());
+        callToast(message, 200);
+
+        // Reset input so the same file can be chosen again
+        e.target.value = "";
       }
-      const {
-        llm_result,
-        message,
-      }: { llm_result: LlmResult; message: string } = await res.json();
-      dispatch(st(llm_result));
-      dispatch(setToFalse());
-      callToast(message, 200);
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error);
@@ -46,6 +58,9 @@ export default function File() {
 
       dispatch(sf());
       dispatch(setToFalse());
+
+      // Reset input so the same file can be chosen again
+      e.target.value = "";
     }
   }
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>): void {
@@ -64,7 +79,7 @@ export default function File() {
       const fd = new FormData();
       fd.append("pdf", file);
       dispatch(setToTrue());
-      fetchAnalysisResult(fd);
+      fetchAnalysisResult(fd, e);
     } catch (error: unknown) {
       if (error instanceof Error) {
         const message = error.message;

@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const file = formData.get("pdf");
   if (!(file instanceof File)) {
-    return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+    return NextResponse.json({ error: "No file uploaded", status: 400 });
   }
 
   // 2) Read it into a Buffer
@@ -23,10 +23,7 @@ export async function POST(request: NextRequest) {
   // 3) Parse the PDF
   try {
     if (!process.env.GEMINI_API_KEY) {
-      return NextResponse.json(
-        { error: "Invalid LLM API key" },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Invalid LLM API key", status: 500 });
     }
     const data = await pdfParse(buffer);
     // data.text is a string containing all extracted text
@@ -57,41 +54,39 @@ export async function POST(request: NextRequest) {
       // Handle non‑200 from Google API
       const errBody = await llmRes.text();
       console.error("LLM API error:", errBody);
-      return NextResponse.json(
-        { error: "LLM service responded with an error" },
-        { status: llmRes.status }
-      );
+      return NextResponse.json({
+        error: "LLM service responded with an error",
+        status: llmRes.status,
+      });
     }
 
     const llmData = await llmRes.json();
     const result = llmData.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!result) {
-      return NextResponse.json(
-        { error: "Malformed LLM response" },
-        { status: 500 }
-      );
+      return NextResponse.json({
+        error: "Malformed LLM response",
+        status: 500,
+      });
     }
 
     const resultObj = extractValidJSON(result);
-    return NextResponse.json(
-      {
-        message: "The result was obtained successfully",
-        llm_result: resultObj,
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({
+      message: "The result was obtained successfully",
+      llm_result: resultObj,
+      status: 200,
+    });
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error("ERROR:", error.message);
-      return NextResponse.json({ message: error.message }, { status: 500 });
+      return NextResponse.json({ message: error.message, status: 500 });
     }
 
     // Fallback if it's not an Error instance
     console.error("UNKNOWN ERROR:", error);
-    return NextResponse.json(
-      { message: "An unknown error occurred" },
-      { status: 500 }
-    );
+    return NextResponse.json({
+      message: "An unknown error occurred",
+      status: 500,
+    });
   }
 }

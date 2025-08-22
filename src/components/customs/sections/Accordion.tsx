@@ -11,7 +11,9 @@ export default function AccordionFC() {
       <div className="p-6 sm:p-8 lg:p-12">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="cursor-pointer">Product Information</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">
+              Product Information
+            </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>
                 Provide resume PDF and get a comprehensive evaluation report
@@ -26,7 +28,9 @@ export default function AccordionFC() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className="cursor-pointer">Key Sections</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">
+              Key Sections
+            </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>
                 EXPERIENCE - Perform a holistic resume audit assessing role
@@ -62,13 +66,14 @@ export default function AccordionFC() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger className="cursor-pointer">About Me</AccordionTrigger>
+            <AccordionTrigger className="cursor-pointer">
+              About Me
+            </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-balance">
               <p>
-                A Full-stack developer proficient in MERN stack, Next.js,
-                TypeScript, etc. Demonstrated ability to build and maintain
-                full-lifecycle web applications, backed by strong academic
-                achievements.
+                A software developer proficient in software development.
+                Demonstrated ability to build and maintain full‑lifecycle web
+                applications, backed by strong academic achievements.
               </p>
             </AccordionContent>
           </AccordionItem>
