@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
-import { CheckCircle, XCircle, Star, ChevronDown } from "lucide-react";
+import { Star, ChevronDown } from "lucide-react";
 import { useSelector } from "react-redux";
 import { LlmResult } from "@/utils/interfaces/result";
 import { RootState } from "@/store/index";

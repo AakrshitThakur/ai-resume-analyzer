@@ -19,7 +19,7 @@ export default function RootLayout({
       <head>
         <style>
           @import
-          url('https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+          url(`https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap`);
         </style>
       </head>
       <body className="max-w-7xl w-full shrink-0 p-1">
