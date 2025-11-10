@@ -10,31 +10,31 @@ Return your analysis as a JSON object with the following exact structure:
     "MERITS": [list of specific strengths],
     "DEMERITS": [list of specific weaknesses/areas for improvement],
     "SCORE": numeric_value_out_of_10,
-    "DETAILED_ANALYSIS": "Arount 50 words comprehensive analysis"
+    "DETAILED_ANALYSIS": "Arount 35 words comprehensive analysis"
   },
   "PROJECTS": {
     "MERITS": [list of specific strengths],
     "DEMERITS": [list of specific weaknesses/areas for improvement], 
     "SCORE": numeric_value_out_of_10,
-    "DETAILED_ANALYSIS": "Arount 50 words comprehensive analysis"
+    "DETAILED_ANALYSIS": "Arount 35 words comprehensive analysis"
   },
   "EDUCATION": {
     "MERITS": [list of specific strengths],
     "DEMERITS": [list of specific weaknesses/areas for improvement],
     "SCORE": numeric_value_out_of_10,
-    "DETAILED_ANALYSIS": "Arount 50 words comprehensive analysis"
+    "DETAILED_ANALYSIS": "Arount 35 words comprehensive analysis"
   },
   "ACHIEVEMENTS": {
     "MERITS": [list of specific strengths],
     "DEMERITS": [list of specific weaknesses/areas for improvement],
     "SCORE": numeric_value_out_of_10,
-    "DETAILED_ANALYSIS": "Arount 50 words comprehensive analysis"
+    "DETAILED_ANALYSIS": "Arount 35 words comprehensive analysis"
   },
   "CERTIFICATES": {
     "MERITS": [list of specific strengths],
     "DEMERITS": [list of specific weaknesses/areas for improvement],
     "SCORE": numeric_value_out_of_10,
-    "DETAILED_ANALYSIS": "Arount 50 words comprehensive analysis"
+    "DETAILED_ANALYSIS": "Arount 35 words comprehensive analysis"
   }
 }
 

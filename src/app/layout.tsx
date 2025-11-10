@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { ToastContainer } from "react-toastify";
 import StoreProvider from "@/app/StoreProvider";
-import { ClientToaster } from "@/components/customs/ClientToaster";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,18 +15,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="grid grid-cols-1 place-items-center">
       <head>
         <style>
           @import
-          url(&quot;https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Expanded+One&display=swap&quot;);
+          url('https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
         </style>
       </head>
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="system">
-          <ClientToaster />
-          <StoreProvider>{children}</StoreProvider>
-        </ThemeProvider>
+      <body className="max-w-7xl w-full shrink-0 p-1">
+        <div id="app" className="max-w-dvw">
+          <ToastContainer />
+          <ThemeProvider attribute="class" defaultTheme="system">
+            <StoreProvider>{children}</StoreProvider>
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

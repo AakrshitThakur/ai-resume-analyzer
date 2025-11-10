@@ -1,8 +1,8 @@
-// app/components/customs/ClientToaster.tsx
-"use client";
+// // app/components/customs/ClientToaster.tsx
+// "use client";
 
-import { Toaster } from "@/components/ui/sonner";
+// import { Toaster } from "@/components/ui/sonner";
 
-export function ClientToaster() {
-  return <Toaster richColors />;
-}
+// export function ClientToaster() {
+//   return <Toaster richColors />;
+// }

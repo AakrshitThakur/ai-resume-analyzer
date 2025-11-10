@@ -15,16 +15,14 @@ export default function ToggleBtn() {
 
   return (
     <Switch
-      className="bg-[#79a6b9] data-checked:bg-[#79a6b9] group relative flex h-7 w-14 cursor-pointer rounded-full p-1 ease-in-out focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white"
+      className="color-base-100 color-base-content group relative flex h-7 w-15 cursor-pointer rounded-full p-1 ease-in-out focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white"
       aria-label="Toggle Dark Mode"
       checked={isDark}
       onChange={() => setTheme(isDark ? "light" : "dark")}
     >
       <span
         aria-hidden="true"
-        className={`pointer-events-none inline-block size-5 translate-x-0 rounded-full shadow-lg ring-0 transition duration-200 ease-in-out group-data-checked:translate-x-7 ${
-          isDark ? "bg-[#f3ffff]" : "bg-[#20464f]"
-        }`}
+        className={`inline-block size-5 translate-x-0 rounded-full ring-0 transition duration-200 ease-in-out group-data-checked:translate-x-[2rem] ${isDark ? "bg-white" : "bg-black"}`}
       />
     </Switch>
   );

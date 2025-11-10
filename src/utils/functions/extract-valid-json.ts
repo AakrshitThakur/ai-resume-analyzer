@@ -1,3 +1,4 @@
+// \s means: “match a whitespace character” (space, tab, newline)
 export default function extractValidJSON(responseText: string) {
   try {
     // Remove code fences if they exist
