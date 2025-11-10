@@ -1,7 +1,6 @@
 # Introduction
 
-Provide resume PDF and get a comprehensive evaluation report with structured scoring across five critical sections.
-I have Employed Gemini 2.5 Pro model, which provided me—at no cost—with up to 5 requests per minute (RPM), 250,000 tokens per minute (TPM), and 100 requests per day (RPD), thereby enabling more efficient processing and superior results.
+Provide resume PDF and get a comprehensive evaluation report with structured scoring across five critical sections. I have Employed Gemini 2.5 Pro model, which provided me — at no cost — with up to 5 requests per minute (RPM), 250,000 tokens per minute (TPM), and 100 requests per day (RPD), thereby enabling more efficient processing and superior results.  
 
 ## Visuals
 
