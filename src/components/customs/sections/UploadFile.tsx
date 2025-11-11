@@ -12,10 +12,12 @@ export default function UploadFile() {
     <section id="upload-file" className="color-base-100 color-base-content p-3 sm:p-4 md:p-5">
       <form>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-1 p-5 sm:p-6 md:p-7">
-          <div className="flex flex-col justify-center items-center gap-1 rounded-full p-3 sm:p-5 md:p-7">
-            <FaUserCircle className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center leading-none">ResumeReviewer</h3>
-            {loading && <Progress />}
+          <div className="flex flex-col justify-center items-center gap-1 p-3 sm:p-5 md:p-7">
+            <div className="flex flex-col justify-center items-center gap-1 border rounded-md p-3 sm:p-4 md:p-5">
+              <FaUserCircle className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center leading-none">ResumeReviewer</h3>
+              {loading && <Progress />}
+            </div>
           </div>
           <File />
         </div>

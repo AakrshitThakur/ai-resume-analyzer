@@ -94,7 +94,7 @@ export default function File() {
     >
       <input className="hidden" type="file" id="file-upload" accept="application/pdf" onChange={handleFileChange} />
       <label
-        className="flex flex-col items-center gap-1 border border-dashed rounded-lg p-3 sm:p-4 md:p-5 cursor-pointer"
+        className="flex flex-col items-center gap-1 border rounded-md p-3 sm:p-4 md:p-5 cursor-pointer"
         htmlFor="file-upload"
       >
         <FaFileAlt className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
