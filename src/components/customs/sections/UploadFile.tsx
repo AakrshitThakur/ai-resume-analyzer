@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { FaUserCircle } from "react-icons/fa";
 import Image from "next/image";
 import File from "./File";
 import Progress from "@/components/customs/Progress";
