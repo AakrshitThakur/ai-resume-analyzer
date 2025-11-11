@@ -21,7 +21,13 @@ const Navbar: React.FC = () => {
         <div className="flex items-center space-x-4">
           <Link className="flex gap-1" href="/">
             <div className="h-auto w-9 sm:w-11 md:w-13 rounded-full overflow-hidden">
-              <Image src="/AakrshitThakurPassportPic.jpeg" alt="Aakrshit Thakur passport pic" className="w-full h-full" />
+              <Image
+                src="/AakrshitThakurPassportPic.jpeg"
+                width={100}
+                height={100}
+                alt="Aakrshit Thakur passport pic"
+                className="w-full h-full"
+              />
             </div>
             <Button className="text-xl sm:text-2xl md:text-3xl cursor-pointer font-bold text-center mr-1 leading-none">
               ResumeReviewer

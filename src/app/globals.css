@@ -145,6 +145,17 @@
   color: var(--color-warning-content);
 }
 
+.bg-grid-lines {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.bg-grid-lines-light {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 .infinite-bar > div {
   animation: slide-bar 1.25s ease-in-out infinite;
 }
