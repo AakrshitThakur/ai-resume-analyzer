@@ -84,22 +84,20 @@ export default function File() {
   }
 
   return (
-    <motion.div
-      initial={{ x: "100vw" }}
-      animate={{ x: "0" }}
-      whileHover={{ scale: 1.025 }}
-      whileTap={{ scale: 0.75 }}
-      transition={{ type: "tween", duration: 0.5 }}
-      className="flex flex-col justify-center items-center cursor-pointer p-3 sm:p-5 md:p-7"
-    >
+    <motion.div className="color-neutral color-neutral-content flex flex-col justify-center items-center cursor-pointer rounded-xl p-3 sm:p-5 md:p-7">
       <input className="hidden" type="file" id="file-upload" accept="application/pdf" onChange={handleFileChange} />
-      <label
+      <motion.label
+        initial={{ x: "100vw" }}
+        animate={{ x: "0" }}
+        whileHover={{ scale: 1.025 }}
+        whileTap={{ scale: 0.75 }}
+        transition={{ type: "tween", duration: 0.5 }}
         className="flex flex-col items-center gap-1 border border-dashed rounded-md p-3 sm:p-4 md:p-5 cursor-pointer"
         htmlFor="file-upload"
       >
         <FaFileAlt className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
         <span className="text-sm text-center leading-none">Click here to upload your resume</span>
-      </label>
+      </motion.label>
     </motion.div>
   );
 }

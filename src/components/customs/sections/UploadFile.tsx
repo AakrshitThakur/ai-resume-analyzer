@@ -6,17 +6,22 @@ import Progress from "@/components/customs/Progress";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 
+// bg-[url('/static-bubbles.svg')] bg-cover
+
 export default function UploadFile() {
   const loading: boolean = useSelector((state: RootState) => state.loading.isAnalysisLoading);
   return (
-    <section id="upload-file" className="color-base-100 color-base-content p-3 sm:p-4 md:p-5">
+    <section
+      id="upload-file"
+      className="color-base-100 color-base-content p-3 sm:p-4 md:p-5"
+    >
       <form>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-1 p-5 sm:p-6 md:p-7">
           <div className="flex flex-col justify-center items-center gap-1 p-3 sm:p-5 md:p-7">
             <div className="flex flex-col justify-center items-center gap-1 rounded-md p-3 sm:p-4 md:p-5">
               <Image
                 src="/cv.png"
-                alt="CV image"
+                alt="CV Image"
                 width={100}
                 height={100}
                 className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto"
