@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
                 className="w-full h-full"
               />
             </div>
-            <Button className="text-xl sm:text-2xl md:text-3xl cursor-pointer font-bold text-center mr-1 leading-none">
+            <Button className="text-lg sm:text-xl md:text-2xl cursor-pointer font-bold text-center mr-1 leading-none">
               ResumeReviewer
             </Button>
           </Link>

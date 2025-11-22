@@ -17,10 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="grid grid-cols-1 place-items-center">
       <head>
-        <style>
-          @import
-          url(`https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap`);
-        </style>
+        <style>@import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap);</style>{" "}
       </head>
       <body className="max-w-7xl w-full shrink-0 p-1">
         <div id="app" className="max-w-dvw">

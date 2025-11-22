@@ -78,7 +78,7 @@
 }
 
 * {
-  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
@@ -177,5 +177,122 @@
     --toastify-toast-padding: 0.5rem !important;
     border-radius: 6px !important;
     margin-top: 0.5rem;
+  }
+}
+
+/* #file-upload > div {
+  position: relative;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+#file-upload > div::after {
+  content: "";
+  position: absolute;
+  will-change: background-image;
+  background-image: linear-gradient(var(--angle), transparent 65%, var(--color-neutral));
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  animation: spin-gradient 3s linear infinite;
+  box-sizing: content-box;
+  padding: 0.25rem;
+  border-radius: 0.45rem;
+}
+
+@keyframes spin-gradient {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+} */
+
+#file > div {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.65rem;
+}
+
+#file > div > span {
+  position: absolute;
+  display: block;
+  background-color: var(--color-neutral);
+  --thick: 3px;
+  --cycle: 1s;
+  --count: infinite;
+  --timing: linear;
+}
+
+#file > div > span:nth-of-type(1) {
+  width: 100%;
+  height: var(--thick);
+  top: 0;
+  left: 0;
+  animation: left-to-right var(--cycle) var(--timing) var(--count);
+}
+@keyframes left-to-right {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+#file > div > span:nth-of-type(2) {
+  width: var(--thick);
+  height: 100%;
+  top: 0;
+  right: 0;
+  animation: top-to-bottom var(--cycle) 0.5s var(--timing) var(--count);
+}
+@keyframes top-to-bottom {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+#file > div > span:nth-of-type(3) {
+  width: 100%;
+  height: var(--thick);
+  bottom: 0;
+  right: 0;
+  animation: right-to-left var(--cycle) 1s var(--timing) var(--count);
+}
+@keyframes right-to-left {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+#file > div > span:nth-of-type(4) {
+  width: var(--thick);
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  animation: bottom-to-top var(--cycle) 1.5s var(--timing) var(--count);
+}
+@keyframes bottom-to-top {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 100%;
   }
 }

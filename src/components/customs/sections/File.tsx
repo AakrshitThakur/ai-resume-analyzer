@@ -84,20 +84,26 @@ export default function File() {
   }
 
   return (
-    <motion.div className="color-neutral color-neutral-content flex flex-col justify-center items-center cursor-pointer rounded-xl p-3 sm:p-5 md:p-7">
-      <input className="hidden" type="file" id="file-upload" accept="application/pdf" onChange={handleFileChange} />
-      <motion.label
-        initial={{ x: "100vw" }}
-        animate={{ x: "0" }}
-        whileHover={{ scale: 1.025 }}
-        whileTap={{ scale: 0.75 }}
-        transition={{ type: "tween", duration: 0.5 }}
-        className="flex flex-col items-center gap-1 border border-dashed rounded-md p-3 sm:p-4 md:p-5 cursor-pointer"
-        htmlFor="file-upload"
-      >
-        <FaFileAlt className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
-        <span className="text-sm text-center leading-none">Click here to upload your resume</span>
-      </motion.label>
-    </motion.div>
+    <div id="file" className="flex flex-col justify-center items-center z-1 cursor-pointer rounded-xl p-3 sm:p-5 md:p-7">
+      <div className="shrink-0">
+        <input id="file-upload" className="hidden" type="file" accept="application/pdf" onChange={handleFileChange} />
+        <motion.label
+          initial={{ x: "100vw" }}
+          animate={{ x: "0" }}
+          whileHover={{ scale: 1.025 }}
+          whileTap={{ scale: 0.75 }}
+          transition={{ type: "tween", duration: 0.5 }}
+          className="color-warning color-warning-content shrink-0 flex flex-col items-center gap-1 rounded-md p-3 sm:p-4 md:p-5 cursor-pointer"
+          htmlFor="file-upload"
+        >
+          <FaFileAlt className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
+          <span className="text-sm text-center leading-none">Click here to upload your resume</span>
+        </motion.label>
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
+    </div>
   );
 }

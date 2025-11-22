@@ -3,7 +3,7 @@ import { ChevronDown } from "lucide-react";
 
 export default function Accordion() {
   return (
-    <section id="accordion" className="w-full color-neutral color-neutral-content bg-grid-lines-light p-3 sm:p-4 md:p-5">
+    <section id="accordion" className="w-full color-neutral color-neutral-content p-3 sm:p-4 md:p-5">
       <div className="color-base-100 color-base-content mx-auto w-full max-w-5xl rounded-lg p-1">
         {/* about product */}
         <Disclosure as="div" className="text-sm p-3" defaultOpen={false}>
