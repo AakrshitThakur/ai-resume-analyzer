@@ -16,7 +16,7 @@ export default function AnalysisReport() {
         animate={{ x: 0 }} // Slide into original position
         whileHover={{ scale: 1.025 }}
         whileTap={{ scale: 0.8 }}
-        transition={{ type: "tween", duration: 0.6 }}
+        transition={{ type: "tween", duration: 0.65 }}
       >
         <p className="text-gray-500">No analysis data available.</p>
       </motion.div>

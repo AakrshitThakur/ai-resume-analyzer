@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
 import File from "./File";
 import Progress from "@/components/customs/Progress";
@@ -13,9 +14,12 @@ export default function UploadFile() {
   return (
     <section id="upload-file" className="color-base-100 color-base-content p-3 sm:p-4 md:p-5">
       <form>
-        <div
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: loading ? 0.3 : 1 }}
+          transition={{ type: "tween", duration: 0.75 }}
           className={`grid grid-cols-1 md:grid-cols-2 gap-1 rounded-xl p-5 sm:p-6 md:p-7 
-            ${loading && "color-neutral color-neutral-content opacity-30 cursor-not-allowed"}`}
+            ${loading && "color-neutral color-neutral-content cursor-not-allowed"}`}
         >
           <div className="flex flex-col justify-center items-center gap-1 p-3 sm:p-5 md:p-7">
             <div className="flex flex-col justify-center items-center gap-1 rounded-md p-3 sm:p-4 md:p-5">
@@ -33,7 +37,7 @@ export default function UploadFile() {
             </div>
           </div>
           <File />
-        </div>
+        </motion.div>
       </form>
     </section>
   );
