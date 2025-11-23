@@ -1,6 +1,7 @@
 "use client";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { motion } from "motion/react";
+import type { RootState } from "@/store";
 import { setToTrue, setToFalse } from "@/features/loading-slice";
 import { setToTrue as st, setToFalse as sf } from "@/features/result-slice";
 import { FaFileAlt } from "react-icons/fa";
@@ -9,6 +10,7 @@ import validatePdfExtension from "@/utils/functions/validate-pdf-extension";
 import { successNotification, errorNotification } from "@/utils/functions/toast";
 
 export default function File() {
+  const loading: boolean = useSelector((state: RootState) => state.loading.isAnalysisLoading);
   const dispatch = useDispatch();
 
   async function fetchAnalysisResult(form: FormData, e: React.ChangeEvent<HTMLInputElement>) {
@@ -84,16 +86,24 @@ export default function File() {
   }
 
   return (
-    <div id="file" className="flex flex-col justify-center items-center z-1 cursor-pointer rounded-xl p-3 sm:p-5 md:p-7">
+    <div id="file" className="flex flex-col justify-center items-center z-1 rounded-xl p-3 sm:p-5 md:p-7">
       <div className="shrink-0">
-        <input id="file-upload" className="hidden" type="file" accept="application/pdf" onChange={handleFileChange} />
+        <input
+          id="file-upload"
+          className="hidden"
+          type="file"
+          accept="application/pdf"
+          onChange={handleFileChange}
+          disabled={loading}
+        />
         <motion.label
           initial={{ x: "100vw" }}
           animate={{ x: "0" }}
           whileHover={{ scale: 1.025 }}
           whileTap={{ scale: 0.75 }}
           transition={{ type: "tween", duration: 0.5 }}
-          className="color-warning color-warning-content shrink-0 flex flex-col items-center gap-1 rounded-md p-3 sm:p-4 md:p-5 cursor-pointer"
+          className={`color-warning color-warning-content shrink-0 flex flex-col items-center gap-1 rounded-md p-3 sm:p-4 md:p-5 
+            ${loading ? "cursor-not-allowed" : "cursor-pointer"}`}
           htmlFor="file-upload"
         >
           <FaFileAlt className="w-[5rem] sm:w-[6rem] md:w-[7rem] h-auto" />
