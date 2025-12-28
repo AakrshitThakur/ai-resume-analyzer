@@ -28,22 +28,22 @@ export async function POST(request: NextRequest) {
     const data = await pdfParse(buffer);
     // data.text is a string containing all extracted text
     const llmRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: primarySystemPrompt + "\n---RESUME CONTENT BELOW---\n" + data.text,
-                },
-              ],
+          // 1. SYSTEM INSTRUCTION - Giving context
+          system_instruction: { parts: [{ text: primarySystemPrompt }] },
+          // 2. MAIN CONTENT - Resume content
+          contents: [{ role: "user", parts: [{ text: "Presented below is the resume content:\n\n" + data.text }] }],
+          // 3. ADVANCED CONFIGURATION - Configurations
+          generation_config: {
+            // FIX: Move thinking settings here (outside generation_config)
+            thinking_config: {
+              thinking_level: "high", // "low" or "high" (High is best for complex correction)
             },
-          ],
+          },
         }),
       }
     );
